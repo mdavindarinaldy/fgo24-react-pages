@@ -1,12 +1,34 @@
-# React + Vite
+# Basic React Project Pages
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is for training only. This project implement Single Page Application (with React Router DOM) to display burger menu.
 
-Currently, two official plugins are available:
+This project is using Burger Menu API from: 
+```
+https://github.com/SBigz/free-food-menus-api
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Preview
 
-## Expanding the ESLint configuration
+![Preview](./preview.png)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## How to Run this Project
+
+1. Clone this project
+```
+git clone https://github.com/mdavindarinaldy/fgo24-react-pages.git
+```
+2. Install dependencies
+```
+npm install
+``` 
+3. Run the project
+```
+npm run dev
+```
+4. Project will running on http://localhost:5173
+
+## Dependencies
+This project using node.js to run, make sure to install node on your machine. Other than that, this project also using Vite, React, React Router DOM and ESLint.
+
+## Basic Information
+This project is part of training in Kodacademy Bootcamp Batch 24 made by Muhammad Davinda Rinaldy
