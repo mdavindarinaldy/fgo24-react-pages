@@ -1,19 +1,30 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import { useState, useEffect } from 'react';
+import CardList from '../components/CardList';
 
 function HomePage() {
-    return (
-        <div className="flex flex-col justify-center">
-            <div className="flex flex-row justify-center align-center gap-10 h-[10svh] py-[10px]">
-                <div>Home Page</div>
-                <Link to='/About'>About Page</Link>
-                <Link to='/Contact-Us'>Contact Us Page</Link>
-            </div>
-            <div className="flex flex-row justify-center align-center h-[90svh] w-[100svw]">
-                <p className="w-[40svw] text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste nulla maiores cumque numquam est reiciendis aperiam fugiat unde sint quod illo voluptas veritatis optio porro, tempora ipsa? Repellendus, molestias quis!</p>
-            </div>
-        </div>
-    )
+  const [burgers, setBurgers] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetch('https://free-food-menus-api-two.vercel.app/burgers')
+      .then((res) => {
+        if (!res.ok) {throw new Error('Failed to fetch data burgers');}
+        return res.json();
+      })
+      .then((data) => setBurgers(data))
+      .catch((err) => setError(err.message));
+  }, []);
+
+  return (
+    <div className="max-w-7xl mx-auto p-6">
+      <h2 className="text-3xl font-bold text-center text-orange-500 mb-8">Our Burger Menu</h2>
+      {error ? (
+        <p className="text-center text-red-500">{error}</p>
+      ) : (
+        <CardList burgers={burgers} />
+      )}
+    </div>
+  );
 }
 
-export default HomePage
+export default HomePage;

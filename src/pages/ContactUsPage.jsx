@@ -1,19 +1,42 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import { useState } from 'react';
 
-function ContactUsPage() {
-    return (
-        <div className="flex flex-col justify-center">
-            <div className="flex flex-row justify-center align-center gap-10 h-[10svh] py-[10px]">
-                <Link to='/'>Home Page</Link>
-                <Link to='/About'>About Page</Link>
-                <div>Contact Us Page</div>
+function Contact() {
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+    setTimeout(() => setSubmitted(false), 3000);
+  };
+
+  return (
+    <div className="max-w-7xl mx-auto p-6">
+      <h2 className="text-3xl font-bold text-center text-orange-500 mb-8">Contact Us</h2>
+      <div className="max-w-md mx-auto">
+        {submitted ? (
+          <p className="text-center text-green-500">
+            Thank you! Your message has been sent.
+          </p>
+        ) : (
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div>
+              <label htmlFor="name" className="block text-gray-700">Name</label>
+              <input type="text" id="name" className="w-full p-2 rounded bg-gray-200 text-gray-900" required/>
             </div>
-            <div className="flex flex-row justify-center align-center h-[90svh] w-[100svw]">
-                <input type='email' className="bg-white w-[40svw] h-[20px] text-black"/>
+            <div>
+              <label htmlFor="email" className="block text-gray-700">Email</label>
+              <input type="email" id="email" className="w-full p-2 rounded bg-gray-200 text-gray-900" required/>
             </div>
-        </div>
-    )
+            <div>
+              <label htmlFor="message" className="block text-gray-700">Message</label>
+              <input type="text" id="message" className="w-full p-2 rounded bg-gray-200 text-gray-900" rows="4" required/>
+            </div>
+            <button type="submit" className="w-full bg-orange-500 text-white p-2 rounded hover:bg-orange-600">Send Message</button>
+          </form>
+        )}
+      </div>
+    </div>
+  );
 }
 
-export default ContactUsPage
+export default Contact;
