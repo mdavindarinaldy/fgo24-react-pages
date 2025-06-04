@@ -11,8 +11,9 @@ https://github.com/SBigz/free-food-menus-api
 
 ![Preview](./preview.png)
 
-## How to Run this Project
+## How to Run this Project (Manual/Docker)
 
+### Manually
 1. Clone this project
 ```
 git clone https://github.com/mdavindarinaldy/fgo24-react-pages.git
@@ -26,6 +27,23 @@ npm install
 npm run dev
 ```
 4. Project will running on http://localhost:5173
+
+### With Docker
+1. Clone this project
+```
+git clone https://github.com/mdavindarinaldy/fgo24-react-pages.git
+```
+2. Build image
+```
+docker build . -t ubuntu:pages
+```
+3. Run image with docker
+```
+docker run -p 8080:80 -d ubuntu:pages
+```
+4. Project will be running on http://localhost:8080
+
+### Project
 
 ## Dependencies
 This project using node.js to run, make sure to install node on your machine. Other than that, this project also using Vite, React, React Router DOM and ESLint.
